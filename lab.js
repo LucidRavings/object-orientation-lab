@@ -5,7 +5,10 @@
 */
 
 //Code here
-
+const me = {
+name: "Kevin",
+age: 29
+}
 
 
 //////////////////////////// PROBLEM 2 ////////////////////////////
@@ -16,21 +19,26 @@
 //and goodBoy/goodGirl (a boolean).
 
 //Code here
-
+const dog = {
+  name: "Doggo",
+  color: "gray",
+  age: 11,
+  goodBoy: true
+}
 
 
 //////////////////////////// PROBLEM 3 ////////////////////////////
 /* Print out the name of the dog you created in problem 2 using dot-notation. */
 
 //Code here
-
+console.log(dog.name)
 
 
 //////////////////////////// PROBLEM 4 ////////////////////////////
 /* Print out the color of the dog you created in problem 2 using bracket-notation. */
 
 //Code here
-
+console.log(dog["color"])
 
 
 //////////////////////////// PROBLEM 5 ////////////////////////////
@@ -40,14 +48,22 @@
 */
 
 //Code here
-
+const favoriteThings = {
+  band: "blink182",
+  food: "burritos",
+  person: "myself",
+  book: "Eragon",
+  movie: "Wreck it Ralph",
+  holiday: "Christmas"
+}
 
 /*
   After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car and then another key named 'show' with the value being your favorite show.
 */
 
 //Code here
-
+favoriteThings.car = "2020 Honda Fit";
+favoriteThings.show = "Grand Designs";
 
 /*
   Now use bracket or dot notation to change the value of the food key in your favoriteThings object to be 'Chicken Nuggets'
@@ -55,7 +71,10 @@
 */
 
 //Code here
-
+newFav = "Chicken Nuggets"
+favoriteThings.food = newFav
+newFav = "Harry Potter"
+favoriteThings.book = newFav
 
 //////////////////////////// PROBLEM 6 ////////////////////////////
 
@@ -73,8 +92,8 @@ var carDetails = {
 */
 
 //Code Here
-
-
+const {color: color2, make: make2, model: model2, year: year2} = carDetails;
+console.log(color2)
 
 //////////////////////////// PROBLEM 7 ////////////////////////////
 
@@ -83,15 +102,19 @@ var carDetails = {
   Use object destructuring to save the object properties to new variables. 
   The property names are firstName, lastName, and title.
 */
-
+const profile = {
+  firstName: "Kevin",
+  lastName: "Judd",
+  title: "Sir"
+}
 function greeting( obj ) {
   //Code Here
-  
+  let {firstName, lastName, title} = obj
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
 }
-
+console.log(greeting(profile))
 
 
 //////////////////////////// PROBLEM 8 ////////////////////////////
@@ -105,8 +128,17 @@ function greeting( obj ) {
 */
 
 //Code Here
-
-
+const population = {
+  utah: 4,
+  california: 8,
+  texas: 12,
+  arizona: 3
+}
+function totalPopulation(obj) {
+  let  {utah, california, texas, arizona} = obj
+  return utah + california + texas + arizona;
+}
+console.log(totalPopulation(population))
 
 //////////////////////////// PROBLEM 9 ////////////////////////////
 
@@ -119,8 +151,20 @@ function greeting( obj ) {
 */
 
 //Code Here
-
-
+const food = {
+  carb: "high",
+  fat: "low",
+  protein: "average"
+}
+let arr = []
+function ingredients(obj){
+let {carb, fat, protein} = obj
+arr.push(carb)
+arr.push(fat)
+arr.push(protein)
+return arr
+}
+console.log(ingredients(food))
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
 // Do not edit the code below.
@@ -141,7 +185,12 @@ var user = {
 */
 
 //Code Here
+let newName = "Bryan G. Smith"
+user.name = newName
+let newEmail = "bryan.smith@devmounta.in"
+user.email = newEmail
 
+console.log(user)
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
 /*
@@ -149,7 +198,8 @@ var user = {
 */
 
 //Code Here
-
+delete user.age
+console.log(user)
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
 /*
@@ -159,8 +209,15 @@ var user = {
 */
 
 //Code here
-
-
+class Cat {
+  constructor (name, age, color){
+    this.name = name,
+    this.age = age,
+    this.color = color
+  }
+}
+const cat1 = new Cat("Snuffles", 3, "black")
+console.log(cat1.name)
 
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
@@ -171,7 +228,19 @@ var user = {
 */
 
 //Code here
+class Wizard {
+  constructor (name, age, favoriteSpell){
+    this.name = name,
+    this.age = age,
+    this.favoriteSpell = favoriteSpell
+  }
 
+  castSpell(){
+    console.log(`${this.name} has cast ${this.favoriteSpell}`)
+  }
+}
+const wiz1 = new Wizard("Fumbledore", 105, "fireball")
+wiz1.castSpell()
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
     Write a class called Phone. We'll use it as if we were creating
@@ -196,7 +265,24 @@ var user = {
 */
 
 //Code Here
+class Phone {
+  constructor (brand, model, storage, color, price){
+    this.brand = brand
+    this.model = model
+    this.storage = storage
+    this.color = color
+    this.price = price
+    this.sold = false
+  }
 
+  sell(){
+    this.sold = true
+    console.log(`${this.brand} ${this.model} has been sold.`)
+  }
+  changePrice(newPrice){
+    this.price = newPrice
+  }
+}
   
 /*
     Next make three new phone instances using your class.
@@ -209,7 +295,9 @@ var user = {
 */
 
 //Code Here
-
+const phone1 = new Phone("Samsung", "Galaxy", 10, "black", 195.99)
+const phone2 = new Phone("Apple", "21e", 50, "white", 499.99)
+const phone3 = new Phone("Nokia", "Brick", 5, "gray", 49.95)
 /* 
   Call the changePrice function on one of your phones, 
   don't forget to pass in a new price 
@@ -218,7 +306,8 @@ var user = {
 */ 
 
 //Code Here 
-
+phone2.changePrice(449.99)
+console.log(phone2)
 
 /*
   Now call the sell method on one of your other phone objects
@@ -227,7 +316,8 @@ var user = {
 */
 
 //Code Here 
-
+phone1.sell()
+console.log(phone1.sold)
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
 
